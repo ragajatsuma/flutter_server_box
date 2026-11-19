@@ -23,6 +23,9 @@ import 'package:server_box/view/page/iperf.dart';
 import 'package:server_box/view/page/port_forward.dart';
 import 'package:server_box/view/page/process/process.dart';
 import 'package:server_box/view/page/scheduled_tasks/scheduled_tasks.dart';
+import 'package:server_box/view/page/server/custom/hermes.dart';
+import 'package:server_box/view/page/server/custom/konoha.dart';
+import 'package:server_box/view/page/server/custom/nine_router.dart';
 import 'package:server_box/view/page/server/widget/server_power.dart';
 import 'package:server_box/view/page/services/services.dart';
 import 'package:server_box/view/page/shares/page.dart';
@@ -568,6 +571,21 @@ void runServerFunc(
         if (!await _ensureExec(context, spi.id, ref)) return;
         if (!context.mounted) return;
         unawaited(SharesPage.route.go(context, SpiRequiredArgs(spi)));
+        break;
+      case ServerFuncBtn.nineRouter:
+        if (!await _ensureExec(context, spi.id, ref)) return;
+        if (!context.mounted) return;
+        unawaited(NineRouterPage.route.go(context, SpiRequiredArgs(spi)));
+        break;
+      case ServerFuncBtn.hermes:
+        if (!await _ensureExec(context, spi.id, ref)) return;
+        if (!context.mounted) return;
+        unawaited(HermesPage.route.go(context, SpiRequiredArgs(spi)));
+        break;
+      case ServerFuncBtn.konoha:
+        if (!await _ensureExec(context, spi.id, ref)) return;
+        if (!context.mounted) return;
+        unawaited(KonohaPage.route.go(context, SpiRequiredArgs(spi)));
         break;
       case ServerFuncBtn.remoteDesktop:
         // A monitor-backed server has nothing to connect here: the agent dials

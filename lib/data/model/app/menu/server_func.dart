@@ -27,7 +27,10 @@ enum ServerFuncBtn {
   remoteDesktop(1617),
   firewall(1719),
   storage(1719),
-  shares(1719);
+  shares(1719),
+  nineRouter(1925),
+  hermes(1925),
+  konoha(1925);
 
   /// The last released build that did not contain this entry.
   ///
@@ -82,6 +85,9 @@ enum ServerFuncBtn {
     firewall,
     storage,
     shares,
+    nineRouter,
+    hermes,
+    konoha,
   ].map((e) => e.name).toList();
 
   /// The entry a stored row names.
@@ -212,6 +218,9 @@ enum ServerFuncBtn {
     firewall => Icons.shield_outlined,
     storage => Icons.storage,
     shares => Icons.folder_shared,
+    nineRouter => Icons.router_outlined,
+    hermes => Icons.smart_toy_outlined,
+    konoha => Icons.sports_esports_outlined,
   };
 
   /// Whether a connection with [caps] can actually do what this entry opens.
@@ -231,7 +240,10 @@ enum ServerFuncBtn {
     scheduledTasks ||
     firewall ||
     storage ||
-    shares => caps.shell,
+    shares ||
+    nineRouter ||
+    hermes ||
+    konoha => caps.shell,
     // Browsing files is its own question: a transport could grow a file API
     // without growing a stream this app can point anywhere.
     files => caps.files,
@@ -296,5 +308,9 @@ enum ServerFuncBtn {
     firewall => l10n.firewall,
     storage => l10n.storageTitle,
     shares => l10n.sharingTitle,
+    // Product names, not words: nothing to translate.
+    nineRouter => '9router',
+    hermes => 'Hermes',
+    konoha => 'Konoha',
   };
 }

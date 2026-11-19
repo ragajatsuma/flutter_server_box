@@ -52,6 +52,9 @@ import 'package:server_box/view/page/scheduled_tasks/scheduled_tasks.dart';
 import 'package:server_box/view/page/server/bmc/drives.dart';
 import 'package:server_box/view/page/server/bmc/logs.dart';
 import 'package:server_box/view/page/server/connection_stats.dart';
+import 'package:server_box/view/page/server/custom/hermes.dart';
+import 'package:server_box/view/page/server/custom/konoha.dart';
+import 'package:server_box/view/page/server/custom/nine_router.dart';
 import 'package:server_box/view/page/server/custom_cmds.dart';
 import 'package:server_box/view/page/server/detail/view.dart';
 import 'package:server_box/view/page/server/edit/edit.dart';
@@ -194,11 +197,13 @@ void main() {
         onDelete: unchanged,
       ),
     ),
+    'HermesPage': (c) => HermesPage.route.go(c, onServer()),
     'HomeTabsConfigPage': (c) => HomeTabsConfigPage.route.go(c),
     'IPerfPage': (c) => IPerfPage.route.go(c, onServer()),
     'IosSettingsPage': (c) => IosSettingsPage.route.go(c),
     'KeybindingsPage': (c) => KeybindingsPage.route.go(c),
     'KnownHostsPage': (c) => KnownHostsPage.route.go(c),
+    'KonohaPage': (c) => KonohaPage.route.go(c, onServer()),
     'LocalFilePage': (c) => LocalFilePage.route.go(c),
     'PermissionsPage': (c) => AgentPermissions.route.go(
       c,
@@ -245,6 +250,7 @@ void main() {
         subtitle: 'web',
       ),
     ),
+    'NineRouterPage': (c) => NineRouterPage.route.go(c, onServer()),
     'PortForwardPage': (c) {
       // The first-run notice is a dialog over the page, not the page.
       Stores.setting.portForwardBetaWarned.put(true);

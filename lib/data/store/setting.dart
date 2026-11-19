@@ -661,6 +661,14 @@ class SettingStore extends SqliteStore with ThemeSettings {
     toObj: ServerFuncBtn.toStored,
   );
 
+  /// The 9router dashboard address the 9router page opens, empty until the
+  /// user sets one: the address differs per server, and no default could be
+  /// right — a server's own address is typed in on that page.
+  late final nineRouterDashboardUrl = propertyDefault(
+    'nineRouterDashboardUrl',
+    '',
+  );
+
   /// Whether container commands use Podman instead of Docker.
   late final usePodman = propertyDefault('usePodman', false);
 
